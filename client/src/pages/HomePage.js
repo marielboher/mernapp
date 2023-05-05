@@ -17,12 +17,20 @@ export function HomePage() {
   return (
     <div>
       <header className="flex justify-between py-4">
-        <h1 className="text-2xl text-gray-300 font-bold">Posts ({posts.length})</h1>
-        <Link to="/new" className="px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white"> Create new Post </Link>
+        <h1 className="text-2xl text-gray-300 font-bold">
+          Posts ({posts.length})
+        </h1>
+        <Link
+          to="/new"
+          className="px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white"
+        >
+          {" "}
+          Create new Post{" "}
+        </Link>
       </header>
 
       <div className="grid grid-cols-3 gap-4">
-        {posts.map((post) => (
+        {posts?.map((post) => (
           <PostCard post={post} key={post._id} />
         ))}
       </div>
