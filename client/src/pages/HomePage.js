@@ -7,13 +7,24 @@ import { PostCard } from "../components/PostCard";
 export function HomePage() {
   const { posts } = usePosts();
 
-  if (posts.length === 0)
-    return (
-      <div className="flex flex-col jusify-center items-center">
-        <VscEmptyWindow className="w-48 h-48 text-white" />
-        <h1 className="text-white text-2xl">there are no posts</h1>
+    const renderMain = () => {
+      if (posts.length === 0)
+      return (
+        <div className="flex flex-col jusify-center items-center">
+          <VscEmptyWindow className="w-48 h-48 text-white" />
+          <h1 className="text-white text-2xl">there are no posts</h1>
+        </div>
+
+      );
+      return(
+        <div className="grid grid-cols-3 gap-4">
+        {posts?.map((post) => (
+          <PostCard post={post} key={post._id} />
+        ))}
       </div>
-    );
+      )
+     
+    }
   return (
     <div>
       <header className="flex justify-between py-4">
@@ -29,11 +40,7 @@ export function HomePage() {
         </Link>
       </header>
 
-      <div className="grid grid-cols-3 gap-4">
-        {posts?.map((post) => (
-          <PostCard post={post} key={post._id} />
-        ))}
-      </div>
+      {renderMain()}
     </div>
   );
 }
