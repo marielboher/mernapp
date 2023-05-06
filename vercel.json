@@ -3,9 +3,10 @@
     "outputDirectory": "client/build",
     "framework": "create-react-app",
     "rewrites": [
-        {
-            "source" : "/src/api/(.*)",
-            "destination" :  "/src/api/post.js"
-        }
+      {
+        "source": "/src/api/(.*)",
+        "destination": "/api/post.js"
+      }
     ]
-}
+  }
+  
