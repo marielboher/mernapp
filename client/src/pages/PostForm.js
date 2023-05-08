@@ -21,7 +21,7 @@ export function PostForm() {
         setPost(post);
       }
     })();
-  }, [params.id]);
+  }, [getPost, params.id]);
 
   return (
     <div className="flex items-center justify-center">

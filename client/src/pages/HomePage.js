@@ -10,7 +10,7 @@ export function HomePage() {
   console.log(posts);
 
   const renderMain = () => {
-    if (!Array.isArray(posts) || posts.length === 0)
+    if (posts.length === 0)
       return (
         <div className="flex flex-col justify-center items-center">
           <VscEmptyWindow className="w-48 h-48 text-white" />
@@ -31,7 +31,7 @@ export function HomePage() {
     <div>
       <header className="flex justify-between py-4">
         <h1 className="text-2xl text-gray-300 font-bold">
-          Posts ({Array.isArray(posts) ? posts.length : 0})
+          Posts {posts ? posts.length : 0}
         </h1>
         <Link
           to="/new"
