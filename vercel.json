@@ -4,11 +4,11 @@
   "routes": [
     {
       "src": "/api/posts",
-      "dest": "/server/posts.routes.js"
+      "dest": "/routes/posts.routes.js"
     },
     {
       "src": "/api/posts/:id",
-      "dest": "/server/posts.routes.js"
+      "dest": "/routes/posts.routes.js"
     }
   ],
   "cleanUrls": true,
