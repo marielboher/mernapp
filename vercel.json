@@ -1,17 +1,16 @@
-
 {
-  "buildCommand": "cd client && npm install && npm run build",
-  "outputDirectory": "client/build",
-  "routes": [
-    {
-      "src": "/api/posts",
-      "dest": "/routes/posts.routes.js"
-    },
-    {
-      "src": "/api/posts/:id",
-      "dest": "/routes/posts.routes.js"
-    }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": false
-}
+    "buildCommand": "cd client && npm install && npm run build",
+    "outputDirectory": "client/build",
+    "framework": "create-react-app",
+    "rewrites": [
+        {
+            "source": "/posts",
+            "destination": "/api/posts"
+          },
+          {
+            "source": "/posts/:id",
+            "destination": "/api/posts/[id]"
+          }
+    ]
+  }
+  
