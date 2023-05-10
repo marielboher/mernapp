@@ -1,6 +1,15 @@
 import axios from "axios";
 
-export const getPostRequests = async () => await axios.get("/posts");
+export const getPostRequests = async () => {
+  try {
+    const response = await axios.get("/posts");
+    console.log("getPostRequests response: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("getPostRequests error: ", error);
+    throw error;
+  }
+};
 
 export const createPostRequest = async (post) => {
   const form = new FormData();
