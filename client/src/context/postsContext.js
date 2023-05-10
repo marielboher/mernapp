@@ -21,7 +21,7 @@ export const PostProvider = ({ children }) => {
   const getPosts = async () => {
     const res = await getPostRequests();
     console.log("res", res);
-    setPosts(res.data);
+    setPosts(res);
   };
 
   const createPost = async (post) => {

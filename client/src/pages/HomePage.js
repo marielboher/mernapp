@@ -10,11 +10,7 @@ export function HomePage() {
   console.log(posts);
 
   const renderMain = () => {
-    if (!posts) {
-      return <p>Loading...</p>;
-    }
-    
-    if (posts.length === 0) {
+    if (posts?.length === 0) {
       return (
         <div className="flex flex-col justify-center items-center">
           <VscEmptyWindow className="w-48 h-48 text-white" />
@@ -22,7 +18,7 @@ export function HomePage() {
         </div>
       );
     }
-    
+
     return (
       <div className="grid grid-cols-3 gap-4">
         {posts.map((post) => (

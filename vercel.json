@@ -5,12 +5,11 @@
     "rewrites": [
         {
             "source": "/posts",
-            "destination": "/api/posts"
+            "destination": "https://mernapp-ten.vercel.app/posts"
           },
           {
             "source": "/posts/:id",
-            "destination": "/api/posts/[id]"
+            "destination": "https://mernapp-ten.vercel.app/posts/[id]"
           }
     ]
-  }
-  
+}
