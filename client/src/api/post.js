@@ -1,10 +1,9 @@
-import axios from "axios";
-
 export const getPostRequests = async () => {
   try {
-    const response = await axios.get("/posts");
-    console.log("getPostRequests response: ", response.data);
-    return response.data;
+    const response = await fetch("/posts");
+    const data = await response.json();
+    console.log("getPostRequests response: ", data);
+    return data;
   } catch (error) {
     console.error("getPostRequests error: ", error);
     throw error;
@@ -18,17 +17,41 @@ export const createPostRequest = async (post) => {
     form.append(key, post[key]);
   }
 
-  return await axios.post("/posts", form, {
+  const options = {
+    method: 'POST',
+    body: form,
     headers: {
       "Content-Type": "multipart/form-data",
     },
-  });
+  };
+
+  const response = await fetch("/posts", options);
+  return await response.json();
 };
 
-export const deletePostRequest = async (id) =>
-  await axios.delete("/posts/" + id);
+export const deletePostRequest = async (id) => {
+  const options = {
+    method: 'DELETE'
+  };
 
-export const getPostRequest = async (id) => await axios.get("/posts/" + id);
+  const response = await fetch("/posts/" + id, options);
+  return await response.json();
+};
 
-export const updatePostRequest = async (id, newFields) =>
-  await axios.put(`/posts/${id}`, newFields);
+export const getPostRequest = async (id) => {
+  const response = await fetch("/posts/" + id);
+  return await response.json();
+};
+
+export const updatePostRequest = async (id, newFields) => {
+  const options = {
+    method: 'PUT',
+    body: JSON.stringify(newFields),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await fetch(`/posts/${id}`, options);
+  return await response.json();
+};

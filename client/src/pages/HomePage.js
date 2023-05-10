@@ -32,7 +32,7 @@ export function HomePage() {
     <div>
       <header className="flex justify-between py-4">
         <h1 className="text-2xl text-gray-300 font-bold">
-          Posts {posts ? posts.length : 0}
+          Posts: {posts ? posts.length : 0}
         </h1>
         <Link
           to="/new"
